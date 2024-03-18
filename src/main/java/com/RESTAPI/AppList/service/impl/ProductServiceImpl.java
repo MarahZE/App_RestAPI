@@ -27,6 +27,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public ProductDto getProductById(Long id) {
+        Product product = productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product dose not found!"));
+        return ProductMapper.mapToProductDto(product);
+    }
+
+    @Override
     public List<ProductDto> getAllProducts() {
         List<Product> productDtoList = productRepository.findAll();
         return productDtoList.stream().map( (product) -> ProductMapper.mapToProductDto(product)).collect(Collectors.toList());

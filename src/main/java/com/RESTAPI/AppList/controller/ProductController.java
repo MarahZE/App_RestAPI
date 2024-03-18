@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Locale;
 
 @RequestMapping("/api/products")
 @RestController
@@ -24,9 +25,17 @@ public class ProductController {
         return new ResponseEntity<>(productService.addProduct(productDto), HttpStatus.CREATED);
     }
 
+    //get all products REST API
     @GetMapping
     public ResponseEntity<List<ProductDto>> getAllProducts() {
         List<ProductDto> productDtoList = productService.getAllProducts();
         return ResponseEntity.ok(productDtoList);
+    }
+
+    //get product by ID REST API
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductDto> getProductByID(@PathVariable Long id) {
+        ProductDto productDto = productService.getProductById(id);
+        return ResponseEntity.ok(productDto);
     }
 }

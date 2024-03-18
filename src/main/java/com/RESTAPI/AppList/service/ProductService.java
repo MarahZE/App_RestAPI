@@ -8,5 +8,9 @@ public interface ProductService {
 
     ProductDto addProduct(ProductDto productDto);
 
+    ProductDto getProductById(Long id);
+
     List<ProductDto> getAllProducts();
+
+
 }
