@@ -98,4 +98,11 @@ public class ProductServiceImpl implements ProductService {
 
         return newList.stream().map((product) -> ProductMapper.mapToProductDto(product)).collect(Collectors.toList());
     }
+
+    @Override
+    public void deleteProduct(Long id) {
+        Product product = productRepository.findById(id).orElseThrow(() -> new RuntimeException("product dose not found!"));
+
+        productRepository.delete(product);
+    }
 }

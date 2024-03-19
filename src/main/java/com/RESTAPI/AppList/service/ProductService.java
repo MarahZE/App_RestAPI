@@ -20,5 +20,7 @@ public interface ProductService {
 
     List<ProductDto> getProductsByProperty(String property , String value);
 
+    void deleteProduct(Long id);
+
 
 }

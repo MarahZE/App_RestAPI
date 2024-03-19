@@ -70,4 +70,11 @@ public class ProductController {
         List<ProductDto> productDtoList = productService.getProductsByProperty(property , value);
         return ResponseEntity.ok(productDtoList);
     }
+
+    //delete product REST API
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteProduct(@PathVariable Long id) {
+       productService.deleteProduct(id);
+       return ResponseEntity.ok("Product is deleted successfully!");
+    }
 }
