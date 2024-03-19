@@ -12,5 +12,13 @@ public interface ProductService {
 
     List<ProductDto> getAllProducts();
 
+    ProductDto addAmount(Long id, double amount);
+
+    ProductDto reduceAmount(Long id, double amount);
+
+    ProductDto changePrise(Long id, double prise);
+
+    List<ProductDto> getProductsByProperty(String property , String value);
+
 
 }
